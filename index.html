@@ -6,16 +6,23 @@
     <title>Document</title>
     <script src="https://pxl.altcraft.ripsime-arutyunyan.lan:80/ak_list_unsubscribe.js?id=MXwxMQ=="></script>
     <!--  Инициализация AkUnsub класса -->
-  <script>
+      <script>
     const akUnsub = new AkUnsub();
+  </script>
+    <!-- Получение send_message_id из URL -->
+  <script>
+    function getSendMessageId() {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get('paramname');
+    }
   </script>
 </head>
 <body>
     Hello, world
 <!-- Кнопка для подтверждения отписки -->
-<button onclick="akUnsub.confirmUnsub('SMID',['category_1', category_2'])">Подтвердить отписку</button>
+<button onclick="akUnsub.confirmUnsub(getSendMessageId(),['new_api_category_1'])">Подтвердить отписку</button>
 
 <!-- Кнопка для отмены отписки -->
-<button onclick="akUnsub.cancelUnsub('SMID',['category_1', category_2'])">Отменить отписку</button> 
+<button onclick="akUnsub.cancelUnsub(getSendMessageId() ,['new_api_category_1'])">Отменить отписку</button> 
 </body>
 </html>
