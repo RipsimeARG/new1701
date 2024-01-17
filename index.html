@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://pxl.altcraft.ripsime-arutyunyan.lan:80/ak_list_unsubscribe.js?id=MXwxMQ==">
-    </script>
-    <!--  Инициализация AkUnsub класса -->
-      <script>
-    const akUnsub = new AkUnsub();
-      </script>
-    <!-- Получение send_message_id из URL -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Подтверждение отписки</title>
+  
+  <!-- Подключение Altcraft SDK -->
+<script src="https://pxl.altcraft.ripsime-arutyunyan.lan:80/ak_list_unsubscribe.js?id=MXwxMQ=="></script>
+  
+  <!-- Получение send_message_id из URL -->
   <script>
     function getSendMessageId() {
       const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get('paramname');    }
+      return urlParams.get('paramname');
+    }
+  </script>
+  
+  <!--  Инициализация AkUnsub класса -->
+  <script>
+    const akUnsub = new AkUnsub();
   </script>
 </head>
 <body>
-    Hello, world
-<!-- Кнопка для подтверждения отписки -->
-<button onclick="akUnsub.confirmUnsub(getSendMessageId(),['new_api_category_1'])">Подтвердить отписку</button>
 
-<!-- Кнопка для отмены отписки -->
-<button onclick="akUnsub.cancelUnsub(getSendMessageId(),['new_api_category_1'])">Отменить отписку</button> 
+  <!-- Кнопка для подтверждения отписки -->
+  <button onclick="akUnsub.confirmUnsub(getSendMessageId(),['new_api_category_1'])">Подтвердить отписку</button>
+
+  <!-- Кнопка для отмены отписки -->
+  <button onclick="akUnsub.cancelUnsub(getSendMessageId())">Отменить отписку</button>
+
 </body>
 </html>
